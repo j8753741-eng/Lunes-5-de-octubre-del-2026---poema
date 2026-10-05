@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Donde mi corazón te guarda como su secreto más hermoso</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 8%, rgba(180, 145, 72, 0.12), transparent 28%),
+        radial-gradient(circle at 20% 80%, rgba(145, 105, 55, 0.07), transparent 30%),
+        #050505;
+    color: #eadfca;
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+}
+
+/* LUZ AMBIENTAL */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 45%, transparent 20%, rgba(0,0,0,.42) 100%);
+    z-index: 0;
+}
+
+/* HUELLITAS */
+
+.paw {
+    position: fixed;
+    color: rgba(210, 174, 105, 0.14);
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatPaw 8s ease-in-out infinite;
+}
+
+.paw1 { top: 13%; left: 8%; transform: rotate(-25deg); }
+.paw2 { top: 31%; right: 8%; transform: rotate(24deg); animation-delay: 2s; }
+.paw3 { bottom: 24%; left: 7%; transform: rotate(18deg); animation-delay: 4s; }
+.paw4 { bottom: 10%; right: 10%; transform: rotate(-20deg); animation-delay: 6s; }
+
+@keyframes floatPaw {
+    0%, 100% {
+        opacity: .12;
+        transform: translateY(0) rotate(var(--r));
+    }
+
+    50% {
+        opacity: .25;
+        transform: translateY(-8px) rotate(var(--r));
+    }
+}
+
+/* CONTENEDOR */
+
+.page {
+    position: relative;
+    z-index: 2;
+    width: min(94%, 760px);
+    margin: auto;
+    padding: 55px 0 70px;
+}
+
+/* LUNA */
+
+.moon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: #ead8ad;
+    box-shadow:
+        0 0 20px rgba(224, 191, 116, .25),
+        0 0 55px rgba(224, 191, 116, .08);
+    position: relative;
+    overflow: hidden;
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #050505;
+    top: -10px;
+    left: 20px;
+}
+
+/* ENCABEZADO */
+
+.header {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.header::after {
+    content: "⌁  ♡  ⌁";
+    display: block;
+    color: #b99858;
+    font-size: 18px;
+    margin-top: 18px;
+    letter-spacing: 7px;
+    opacity: .8;
+}
+
+.date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #a98b57;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(30px, 7vw, 51px);
+    line-height: 1.05;
+    font-weight: 600;
+    color: #e8d7b2;
+    text-shadow: 0 0 20px rgba(210, 170, 90, .12);
+}
+
+/* CARTA */
+
+.letter {
+    position: relative;
+    padding: 43px 27px 45px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.012)
+        );
+    border: 1px solid rgba(202, 165, 91, .28);
+    border-radius: 26px;
+    box-shadow:
+        0 20px 80px rgba(0,0,0,.7),
+        inset 0 0 35px rgba(206, 167, 91, .025);
+    backdrop-filter: blur(8px);
+}
+
+.letter::before,
+.letter::after {
+    content: "✦";
+    position: absolute;
+    color: #b99858;
+    font-size: 15px;
+    opacity: .75;
+}
+
+.letter::before {
+    top: 17px;
+    left: 20px;
+}
+
+.letter::after {
+    bottom: 17px;
+    right: 20px;
+}
+
+/* POEMA */
+
+.poem {
+    text-align: center;
+}
+
+.poem p {
+    font-size: clamp(20px, 4.8vw, 25px);
+    line-height: 1.65;
+    font-weight: 400;
+    color: #e7ddca;
+    margin-bottom: 25px;
+}
+
+.poem .dedication {
+    font-size: clamp(23px, 5vw, 29px);
+    color: #d7b878;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+.poem .title {
+    color: #d5b56f;
+    font-size: clamp(25px, 6vw, 35px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 34px;
+}
+
+.poem .signature {
+    margin-top: 38px;
+    color: #d4b56e;
+    font-size: 22px;
+    line-height: 1.55;
+}
+
+.poem .signature strong {
+    display: block;
+    margin-top: 7px;
+    font-size: clamp(21px, 5vw, 26px);
+    letter-spacing: 1px;
+    color: #ead5a4;
+}
+
+.poem .final-love {
+    margin-top: 25px;
+    color: #a98b57;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* GATO DECORATIVO */
+
+.cat {
+    text-align: center;
+    margin-top: 35px;
+    color: #b99858;
+    font-size: 27px;
+    opacity: .75;
+    animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: .65;
+    }
+
+    50% {
+        transform: translateY(-4px);
+        opacity: .95;
+    }
+}
+
+/* APARICIÓN */
+
+.fade {
+    animation: appear 1.5s ease both;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MÓVIL */
+
+@media (max-width: 600px) {
+
+    .page {
+        width: 92%;
+        padding-top: 38px;
+    }
+
+    .moon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .moon::after {
+        width: 66px;
+        height: 66px;
+        left: 17px;
+    }
+
+    .letter {
+        padding: 34px 19px 38px;
+        border-radius: 22px;
+    }
+
+    .poem p {
+        line-height: 1.58;
+        margin-bottom: 22px;
+    }
+
+    .paw {
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HUELLITAS GATUNAS -->
+<div class="paw paw1">🐾</div>
+<div class="paw paw2">🐾</div>
+<div class="paw paw3">🐾</div>
+<div class="paw paw4">🐾</div>
+
+<main class="page">
+
+    <div class="moon fade"></div>
+
+    <header class="header fade">
+        <div class="date">Lunes · 5 de octubre · 2026</div>
+
+        <h1>
+            ✦ DONDE MI CORAZÓN TE GUARDA COMO SU SECRETO MÁS HERMOSO ✦
+        </h1>
+    </header>
+
+    <section class="letter fade">
+
+        <div class="poem">
+
+            <p class="dedication">
+                Mi Dulce Cometa de Mi Piel,
+            </p>
+
+            <p>
+                Desde muy temprano dejé estas palabras aquí,<br>
+                como quien deja un beso escondido<br>
+                para que la persona que ama<br>
+                lo encuentre cuando sus ojos lleguen hasta él.
+            </p>
+
+            <p>
+                No importa si me lees al despertar,<br>
+                cuando el lunes apenas comienza,<br>
+                o si llegas a mí cuando el día ya está avanzado;<br>
+                quiero que sepas que mi amor<br>
+                ya estaba esperándote desde temprano.
+            </p>
+
+            <p>
+                Porque mientras el mundo comienza su día,<br>
+                yo comienzo el mío pensando en ti.
+            </p>
+
+            <p>
+                Y hay algo de ti que no sé explicar:<br>
+                una manera tuya de quedarte en mi pecho,<br>
+                de encender mis pensamientos con solo recordarte,<br>
+                de hacer que incluso la distancia<br>
+                parezca pequeña cuando cierro los ojos.
+            </p>
+
+            <p>
+                Tú eres ese deseo bonito<br>
+                que no quiero dejar de sentir,<br>
+                ese nombre que mi corazón pronuncia<br>
+                incluso cuando mis labios permanecen en silencio.
+            </p>
+
+            <p>
+                Y si alguna vez dudas de cuánto te amo,<br>
+                ven a buscarme aquí,<br>
+                en cada palabra,<br>
+                en cada latido escondido entre estas líneas.
+            </p>
+
+            <p>
+                Porque mi amor por ti no espera una hora,<br>
+                no necesita un momento perfecto<br>
+                ni un día especial para existir.
+            </p>
+
+            <p>
+                Te ama desde antes de que leas esto,<br>
+                te ama mientras lo lees<br>
+                y seguirá amándote mucho después<br>
+                de que cierres estas palabras.
+            </p>
+
+            <p class="signature">
+                Con todo lo que soy,
+                <strong>JUAN KALETH MENDOZA PRIMERA</strong>
+            </p>
+
+            <p class="final-love">
+                Para el amor de mi vida
+            </p>
+
+            <p class="signature">
+                <strong>VALERIA PETRO VILLAZÓN</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <div class="cat">
+        ♡ ᓚᘏᗢ ♡
+    </div>
+
+</main>
+
+</body>
+  </html>
